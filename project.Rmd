@@ -51,7 +51,11 @@ going from automatic transmission to manual.
 
 An additional variable, the weight of the cars, in included in the analysis. In 
 this way it is possible to model how other factors may interfere in the outcome
-of this study, which is miles/gallon. See figure 2 in the appendix.
+of this study, which is miles/gallon. See figure 2 in the appendix, where a 
+point-plot indicates the direct influence the variable weight has on the mpg 
+outcome. Therefore, the weight is a variable worth considering 
+when analyzing whether automatic or manual transmission is better for mpg, given
+that manual cars weight less than automatic ones.
 
 ```{r, echo=TRUE}
 fit2 <- lm(mpg ~ am + wt, data = mtcars)
@@ -99,10 +103,6 @@ coef0 <- summary(fit0)$coefficients
 
 ## This appendix contains supplementary figures and their respective R codes.
 
-Box plot of the mpg(outcome) as a function of the type of transmission of the 
-car. The number of cylinders was included as a second variable in the plot an
-indicates that, except for 8-cylinder cars, it is not relevant to consider this
-variable for a regression analysis.
 ```{r, echo=TRUE}
 g <- ggplot(data = mtcars, aes(y = mpg, x = factor(am), fill = factor(cyl)))
 g <- g + geom_boxplot()
@@ -110,10 +110,6 @@ g <- g + xlab("transmission") + ylab("miles/gallon")
 g
 ```
 
-This figure shows a point plot that indicates the direct influence the variable 
-weight has on the mpg outcome. Therefore, this is a variable worth considering 
-when analyzing whether automatic or manual transmission is better for mpg, given
-that manual cars weight less than automatic ones.
 ```{r, echo=TRUE}
 g <- ggplot(data = mtcars, aes(y = mpg, x = wt, color = factor(am)))
 g <- g + geom_point() + xlab("weight (1000 lbs)") + ylab("miles/gallon")
