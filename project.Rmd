@@ -13,11 +13,13 @@ developing a regression analysis of the relevant statistical factors. More
 specifically, the questions whether automatic or manual transmission is better
 for mpg is addressed below.
 
-```{r packages, echo=TRUE, results='hide'}
+## Loading packages
+```{r packages, echo=TRUE, results='hide', message=FALSE, warning=FALSE}
 library("ggplot2")
 require("cowplot")
 ```
 
+# Linear regression
 The "am" variable in the mtcars dataset is of binary type, indicating manual
 tranmission with "1" and automatic transmission with "0". The box plot can be 
 seen in the appendix (Figure 1) indicating that manual transmission is more 
